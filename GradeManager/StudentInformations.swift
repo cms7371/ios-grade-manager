@@ -59,3 +59,18 @@ enum StudentInformationsError: Error {
     case studentAlreadyExists(name: String)
     case noMatchedStudent(name: String)
 }
+
+extension StudentInformationsError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .studentAlreadyExists(let name):
+            return "\(name)은 이미 존재하는 학생입니다. 추가하지 않습니다."
+        case .noMatchedStudent(let name):
+            return "\(name) 학생을 찾지 못했습니다."
+        }
+    }
+}
+
+extension String {
+    
+}
